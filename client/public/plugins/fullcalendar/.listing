@@ -1,0 +1,12 @@
+drwxrwxrwx    5 vidhik     vidhik            255 May  5 21:06 .
+drwxrwxrwx   13 vidhik     vidhik            269 May  5 21:06 ..
+drwxrwxrwx    5 vidhik     vidhik           4096 May  5 21:06 demos
+-rw-rw-rw-    1 vidhik     vidhik         636101 Jan 27  2022 fullcalendar.js
+-rw-rw-rw-    1 vidhik     vidhik          16140 Jan 27  2022 fullcalendar.min.css
+-rw-rw-rw-    1 vidhik     vidhik         216949 Jan 27  2022 fullcalendar.min.js
+-rw-rw-rw-    1 vidhik     vidhik           1999 Jan 27  2022 fullcalendar.print.min.css
+-rw-rw-rw-    1 vidhik     vidhik          12966 Jan 27  2022 gcal.js
+-rw-rw-rw-    1 vidhik     vidhik           4773 Jan 27  2022 gcal.min.js
+drwxrwxrwx    2 vidhik     vidhik             88 May  5 21:06 lib
+drwxrwxrwx    2 vidhik     vidhik           4096 May  5 21:06 locale
+-rw-rw-rw-    1 vidhik     vidhik         192758 Jan 27  2022 locale-all.js

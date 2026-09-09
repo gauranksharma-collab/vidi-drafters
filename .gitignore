@@ -1,0 +1,22 @@
+# Reference-only legacy source pulled from the old cPanel host during
+# migration - not part of the new app, and the MySQL dump contains real
+# customer PII. Never commit either.
+legacy-site-source/
+db-migration/
+
+# Dependencies
+node_modules/
+
+# Env files (real secrets live only in .env, never .env.example)
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+dist-ssr/
+
+# Misc
+.DS_Store
+*.log
+*.local

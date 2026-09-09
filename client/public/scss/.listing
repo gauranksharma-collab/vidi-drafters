@@ -1,0 +1,17 @@
+drwxrwxrwx    7 vidhik     vidhik           4096 May  5 21:08 .
+drwxr-x---   14 vidhik     65534            4096 Sep  6 18:57 ..
+-rw-rw-rw-    1 vidhik     vidhik            273 Jan 27  2022 _fonts.scss
+-rw-rw-rw-    1 vidhik     vidhik            229 Jan 27  2022 _include.scss
+-rw-rw-rw-    1 vidhik     vidhik           1077 Jan 27  2022 _mixins.scss
+-rw-rw-rw-    1 vidhik     vidhik           3570 Jun  6  2025 _variables.scss
+-rw-rw-rw-    1 vidhik     vidhik            841 Jan 27  2022 admin.css
+-rw-rw-rw-    1 vidhik     vidhik            146 Jan 27  2022 admin.css.map
+-rw-rw-rw-    1 vidhik     vidhik            798 Jan 27  2022 admin.scss
+drwxrwxrwx    2 vidhik     vidhik           4096 May  5 21:08 base
+drwxrwxrwx    2 vidhik     vidhik            184 May  5 21:08 components
+drwxrwxrwx    2 vidhik     vidhik            146 May  5 21:08 customization
+drwxrwxrwx    2 vidhik     vidhik           4096 May  5 21:08 elements
+drwxrwxrwx    2 vidhik     vidhik            295 May  5 21:08 plugins
+-rw-rw-rw-    1 vidhik     vidhik         471272 Jan 27  2022 style.css
+-rw-rw-rw-    1 vidhik     vidhik         207705 Jan 27  2022 style.css.map
+-rw-rw-rw-    1 vidhik     vidhik             42 Jan 27  2022 style.scss

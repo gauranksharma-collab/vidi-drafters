@@ -1,0 +1,6 @@
+drwxrwxrwx    2 vidhik     vidhik             78 May  5 21:04 .
+drwxr-x---   14 vidhik     65534            4096 Sep  6 18:57 ..
+-rw-rw-rw-    1 vidhik     vidhik            101 Jan 27  2022 custom.js
+-rw-rw-rw-    1 vidhik     vidhik         124236 Jan 27  2022 functions.js
+-rw-rw-rw-    1 vidhik     vidhik          88147 Jan 27  2022 jquery.js
+-rw-rw-rw-    1 vidhik     vidhik         257184 Jan 27  2022 plugins.js

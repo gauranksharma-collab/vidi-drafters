@@ -1,0 +1,89 @@
+body {
+  margin: 0;
+}
+
+/* The legacy theme's CSS hides every [data-animate] element (opacity: 0)
+   until its old jQuery scroll-reveal script reveals it. We don't run that
+   script, so force these elements visible instead of reimplementing a
+   timing-sensitive scroll animation for a purely decorative fade-in. */
+[data-animate] {
+  opacity: 1 !important;
+}
+
+/* Same story for the theme's Isotope-masonry blog/post grids (#blog,
+   .grid-layout): they start at opacity: 0 until Isotope's JS finishes
+   packing items and adds .grid-loaded. We use plain CSS grid instead of
+   porting Isotope, so force these visible too. */
+.grid-layout > * {
+  opacity: 1 !important;
+}
+
+/* Without Isotope's JS, the theme's column classes (.post-3-columns etc.)
+   fall back to plain CSS floats. Floats wrap around whichever column
+   happens to be shortest, so cards of different heights leave gaps and
+   land in unexpected columns instead of forming even rows. Force real
+   CSS grid instead so post-item cards always line up in clean rows. */
+.grid-layout {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-columns, 1), 1fr);
+  gap: 20px;
+}
+.grid-layout .grid-loader {
+  display: none;
+}
+.grid-layout > .post-item {
+  float: none;
+  width: auto !important;
+  padding: 0;
+}
+.grid-layout.post-2-columns {
+  --grid-columns: 2;
+}
+.grid-layout.post-3-columns {
+  --grid-columns: 3;
+}
+@media (max-width: 1024px) {
+  .grid-layout.post-3-columns {
+    --grid-columns: 2;
+  }
+}
+@media (max-width: 480px) {
+  .grid-layout {
+    --grid-columns: 1;
+  }
+}
+
+/* Same story again: every direct child of the hero slider's caption block
+   (heading, text, button) starts at opacity: 0 in the theme CSS - normally
+   revealed by the slider's JS with a staggered fade-up-in entrance each
+   time a slide activates. There's no CSS-only hook for that (no keyframes
+   in the theme stylesheet, it's all done via JS), so we recreate the same
+   staggered entrance ourselves. HeroSlider.jsx remounts the active slide's
+   caption (key={active}) so this animation replays on every slide change. */
+@keyframes heroCaptionIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.inspiro-slider .slide-captions > * {
+  animation: heroCaptionIn 0.7s ease both;
+}
+.inspiro-slider .slide-captions > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.inspiro-slider .slide-captions > *:nth-child(2) {
+  animation-delay: 0.25s;
+}
+.inspiro-slider .slide-captions > *:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.inspiro-slider .slide-captions > *:nth-child(4) {
+  animation-delay: 0.55s;
+}
+
+

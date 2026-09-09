@@ -1,0 +1,11 @@
+drwxrwxrwx    2 vidhik     vidhik            295 May  5 21:08 .
+drwxrwxrwx    7 vidhik     vidhik           4096 May  5 21:08 ..
+-rw-rw-rw-    1 vidhik     vidhik          18578 Jan 27  2022 bootstrap-switch.css
+-rw-rw-rw-    1 vidhik     vidhik           8040 Jan 27  2022 bootstrap-switch.css.map
+-rw-rw-rw-    1 vidhik     vidhik          16260 Jan 27  2022 bootstrap-switch.scss
+-rw-rw-rw-    1 vidhik     vidhik           6335 Jan 27  2022 ion-range-slider.css
+-rw-rw-rw-    1 vidhik     vidhik           4261 Jan 27  2022 ion-range-slider.css.map
+-rw-rw-rw-    1 vidhik     vidhik           5807 Jan 27  2022 ion-range-slider.scss
+-rw-rw-rw-    1 vidhik     vidhik          25437 Jan 27  2022 pageloader.css
+-rw-rw-rw-    1 vidhik     vidhik          14475 Jan 27  2022 pageloader.css.map
+-rw-rw-rw-    1 vidhik     vidhik          25657 Jan 27  2022 pageloader.scss
