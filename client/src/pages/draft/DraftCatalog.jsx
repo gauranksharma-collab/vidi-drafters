@@ -9,7 +9,6 @@ const ACCENT = '#f84b46';
 export default function DraftCatalog() {
   const [items, setItems] = useState(null);
   const [error, setError] = useState('');
-  const [expandedCategory, setExpandedCategory] = useState(null);
 
   useEffect(() => {
     api
@@ -23,8 +22,6 @@ export default function DraftCatalog() {
         .map((cat) => ({ ...cat, items: items.filter((i) => i.category === cat.slug) }))
         .filter((cat) => cat.items.length > 0)
     : [];
-
-  const expanded = categoriesWithItems.find((cat) => cat.slug === expandedCategory);
 
   return (
     <>
@@ -112,42 +109,15 @@ export default function DraftCatalog() {
                     ))}
                   </ul>
 
-                  <button
-                    type="button"
+                  <Link
+                    to={`/draft/category/${cat.slug}`}
                     className="btn"
-                    onClick={() => setExpandedCategory((prev) => (prev === cat.slug ? null : cat.slug))}
-                    style={{ backgroundColor: ACCENT, color: '#fff', width: '100%' }}
+                    style={{ backgroundColor: ACCENT, color: '#fff', width: '100%', display: 'block' }}
                   >
-                    {expandedCategory === cat.slug ? 'Hide affidavits' : 'Select affidavit'}{' '}
-                    <i className="fa fa-arrow-right" />
-                  </button>
+                    Select affidavit <i className="fa fa-arrow-right" />
+                  </Link>
                 </div>
               ))}
-            </div>
-          )}
-
-          {expanded && (
-            <div className="m-b-40">
-              <h4 className="m-b-20">{expanded.label}</h4>
-              <div className="row row-cols-1 row-cols-md-3 g-4">
-                {expanded.items.map((doc) => (
-                  <div className="col" key={doc.slug}>
-                    <div className="card h-100 shadow-sm">
-                      <div className="card-body d-flex flex-column">
-                        <h5 className="card-title">{doc.name}</h5>
-                        <p className="text-muted mb-3">Starting at ₹{doc.basePrice}</p>
-                        <Link
-                          to={`/draft/document/${doc.slug}`}
-                          className="btn btn-red mt-auto"
-                          style={{ backgroundColor: ACCENT, color: '#fff' }}
-                        >
-                          Create Affidavit
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
             </div>
           )}
         </div>

@@ -5,7 +5,7 @@ function listDocumentTypes(req, res) {
   const all = Object.values(documentTypes);
   const filtered = category ? all.filter((d) => d.category === category) : all;
   res.json({
-    items: filtered.map(({ slug, name, category, basePrice }) => ({ slug, name, category, basePrice })),
+    items: filtered.map(({ slug, name, category, basePrice, description }) => ({ slug, name, category, basePrice, description })),
   });
 }
 

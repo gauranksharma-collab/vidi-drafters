@@ -11,6 +11,7 @@ import ResetPassword from './pages/auth/ResetPassword';
 import Profile from './pages/auth/Profile';
 
 import DraftCatalog from './pages/draft/DraftCatalog';
+import DraftCategoryPage from './pages/draft/DraftCategoryPage';
 import DraftDocumentForm from './pages/draft/DraftDocumentForm';
 import DraftCart from './pages/draft/DraftCart';
 import DraftCheckout from './pages/draft/DraftCheckout';
@@ -53,6 +54,7 @@ export default function App() {
         <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/draft" element={<DraftCatalog />} />
+        <Route path="/draft/category/:categorySlug" element={<DraftCategoryPage />} />
         <Route path="/draft/document/:slug" element={<DraftDocumentForm />} />
         <Route path="/draft/cart" element={<DraftCart />} />
         <Route path="/draft/checkout" element={<DraftCheckout />} />

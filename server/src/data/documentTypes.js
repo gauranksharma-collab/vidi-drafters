@@ -56,6 +56,7 @@ const documentTypes = {
     name: 'Address Proof Affidavit',
     category: 'general',
     basePrice: 300,
+    description: 'Required to provide residential proof to a concerned department when no other proof of residence is available — commonly used for a driving licence, SIM card issue, and similar purposes.',
     groups: [
       {
         title: null,
@@ -78,6 +79,7 @@ const documentTypes = {
     name: 'Change of Signature Affidavit',
     category: 'general',
     basePrice: 300,
+    description: 'A sworn declaration stating that the applicant has changed their signature, letting them formally switch to a new one.',
     groups: [
       {
         title: null,
@@ -100,6 +102,7 @@ const documentTypes = {
     name: 'Proof of Income Affidavit',
     category: 'general',
     basePrice: 300,
+    description: "Required to declare a family's income in order to avail various government benefits and schemes.",
     groups: [
       {
         title: 'Applicant Details',
@@ -152,6 +155,7 @@ const documentTypes = {
     name: 'Sale / Purchase of Vehicle Affidavit',
     category: 'general',
     basePrice: 300,
+    description: "Required when a vehicle changes hands between two parties, declaring the vehicle's details and confirming possession has been handed over from the stated date.",
     groups: [
       {
         title: null,
@@ -198,6 +202,7 @@ const documentTypes = {
     name: 'PF Withdrawal cum Indemnity Bond',
     category: 'general',
     basePrice: 300,
+    description: 'Required when applying for withdrawal of Provident Fund, indemnifying the employer/PF office against any future claims.',
     groups: [
       {
         title: 'Applicant Details',
@@ -230,6 +235,7 @@ const documentTypes = {
     name: 'Loss of Document Affidavit',
     category: 'general',
     basePrice: 300,
+    description: 'Lets you formally declare the loss of a certificate or document, stating the details of what was lost — commonly used to obtain a duplicate.',
     groups: [
       {
         title: null,
@@ -254,6 +260,7 @@ const documentTypes = {
     name: 'Change of Name',
     category: 'change-of-name',
     basePrice: 300,
+    description: 'Required when a person is planning to legally change their name — the first step toward changing it officially.',
     groups: [
       {
         title: null,
@@ -277,6 +284,7 @@ const documentTypes = {
     name: 'Change of Name after Marriage',
     category: 'change-of-name',
     basePrice: 300,
+    description: 'Required when a person wants to update their surname in official records following marriage.',
     groups: [
       {
         title: 'Applicant Details',
@@ -297,6 +305,7 @@ const documentTypes = {
     name: 'Change of Name of Minor Affidavit',
     category: 'change-of-name',
     basePrice: 300,
+    description: "Required when parents want to legally change their child's name.",
     groups: [
       {
         title: null,
@@ -326,6 +335,7 @@ const documentTypes = {
     name: 'One and the Same Person Affidavit',
     category: 'change-of-name',
     basePrice: 300,
+    description: 'Declares that two different names appearing across documents belong to the same individual.',
     groups: [
       {
         title: null,
@@ -349,6 +359,7 @@ const documentTypes = {
     name: 'Name Correction Affidavit',
     category: 'change-of-name',
     basePrice: 300,
+    description: "A sworn statement declaring a person's correct/actual name alongside an incorrect name that appears in a particular document.",
     groups: [
       {
         title: 'General Details',
@@ -377,6 +388,7 @@ const documentTypes = {
     name: 'Rental Agreement Affidavit',
     category: 'rent-agreement',
     basePrice: 300,
+    description: 'Records the terms between an owner and tenant — rent, security deposit, duration, and other tenancy terms — for a residential or commercial property.',
     groups: [
       {
         title: 'Owner Details',
@@ -428,6 +440,7 @@ const documentTypes = {
     name: 'Addition of Name in Birth Certificate Affidavit',
     category: 'birth-marriage',
     basePrice: 300,
+    description: "States the details of a child's birth and parents, and is required by the Municipal Corporation when applying to add the child's name to their birth certificate.",
     groups: [
       {
         title: null,
@@ -456,6 +469,7 @@ const documentTypes = {
     name: 'Affidavit for First Born Child',
     category: 'birth-marriage',
     basePrice: 300,
+    description: 'Required for nursery admissions, where parents declare details about their first-born child.',
     groups: [
       {
         title: null,
@@ -486,6 +500,7 @@ const documentTypes = {
     name: 'Marriage Affidavit',
     category: 'birth-marriage',
     basePrice: 300,
+    description: 'Required when someone needs to prove their marriage before a court or government body, sworn by the person claiming the marriage.',
     groups: [
       {
         title: 'Applicant Details',
@@ -516,6 +531,7 @@ const documentTypes = {
     name: 'Joint Affidavit for Marriage Registration',
     category: 'birth-marriage',
     basePrice: 300,
+    description: 'A joint sworn statement from husband and wife covering their marriage date, place, and the law under which the marriage is registered.',
     groups: [
       {
         title: 'Husband Details',
@@ -550,6 +566,7 @@ const documentTypes = {
     name: 'Individual Affidavit for Marriage Registration',
     category: 'birth-marriage',
     basePrice: 300,
+    description: 'A legal document with sworn statements from the bride and/or groom individually, covering personal details and intention to marry.',
     groups: [
       {
         title: 'Husband Details',
@@ -597,6 +614,7 @@ const documentTypes = {
     name: 'Proof of Date of Birth',
     category: 'birth-marriage',
     basePrice: 300,
+    description: "A sworn declaration confirming a person's date of birth, used when no other official proof of birth is available.",
     groups: [
       {
         title: null,
@@ -618,6 +636,7 @@ const documentTypes = {
     name: 'Gap Period Affidavit',
     category: 'student',
     basePrice: 300,
+    description: "A declaration made on non-judicial stamp paper stating the reason a candidate is taking a gap year and confirming they won't be enrolled in any other course or university during that period.",
     groups: [
       {
         title: null,
@@ -642,6 +661,7 @@ const documentTypes = {
     name: 'Short Attendance Affidavit',
     category: 'student',
     basePrice: 300,
+    description: "Required when a student hasn't met the minimum attendance criteria and needs to declare the reason in order to be permitted to sit their exams.",
     groups: [
       {
         title: 'Student Details',
@@ -665,6 +685,7 @@ const documentTypes = {
     name: 'Loss of Certificate Affidavit',
     category: 'student',
     basePrice: 300,
+    description: 'Lets a student formally declare the loss of an educational certificate or document, needed to apply for a duplicate.',
     groups: [
       {
         title: 'Applicant Details',
@@ -694,6 +715,7 @@ const documentTypes = {
     name: 'Anti Ragging Affidavit/Undertaking',
     category: 'student',
     basePrice: 300,
+    description: 'Required by colleges and universities at the time of admission, executed on non-judicial stamp paper and attested by an officer.',
     groups: [
       {
         title: 'Student Details',
@@ -718,6 +740,7 @@ const documentTypes = {
     name: 'Education Loan Affidavit',
     category: 'student',
     basePrice: 300,
+    description: "Declares a student's course and institution details, commonly required when applying for or availing an education loan.",
     groups: [
       {
         title: 'Applicant Details',
