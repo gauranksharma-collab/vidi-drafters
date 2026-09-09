@@ -15,6 +15,7 @@ app.use(express.json());
 
 const formLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 30 });
 
+app.get('/', (req, res) => res.json({ ok: true, service: 'vidhik-drafters-api' }));
 app.get('/api/health', (req, res) => res.json({ ok: true }));
 app.use('/api/registration', formLimiter, registrationRoutes);
 app.use('/api/contact', formLimiter, contactRoutes);
