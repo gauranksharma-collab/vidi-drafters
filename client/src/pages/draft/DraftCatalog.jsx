@@ -4,9 +4,12 @@ import PageHero from '../../components/PageHero';
 import draftCategories from '../../data/draftCategories';
 import api from '../../lib/api';
 
+const ACCENT = '#f84b46';
+
 export default function DraftCatalog() {
   const [items, setItems] = useState(null);
   const [error, setError] = useState('');
+  const [expandedCategory, setExpandedCategory] = useState(null);
 
   useEffect(() => {
     api
@@ -14,6 +17,14 @@ export default function DraftCatalog() {
       .then((res) => setItems(res.data.items))
       .catch(() => setError('Could not load document types. Please try again later.'));
   }, []);
+
+  const categoriesWithItems = items
+    ? draftCategories
+        .map((cat) => ({ ...cat, items: items.filter((i) => i.category === cat.slug) }))
+        .filter((cat) => cat.items.length > 0)
+    : [];
+
+  const expanded = categoriesWithItems.find((cat) => cat.slug === expandedCategory);
 
   return (
     <>
@@ -35,31 +46,110 @@ export default function DraftCatalog() {
           {error && <p className="text-danger text-center">{error}</p>}
           {!items && !error && <p className="text-center">Loading...</p>}
 
-          {items &&
-            draftCategories.map((cat) => {
-              const catItems = items.filter((i) => i.category === cat.slug);
-              if (catItems.length === 0) return null;
-              return (
-                <div key={cat.slug} className="m-b-40">
-                  <h4 className="m-b-20">{cat.label}</h4>
-                  <div className="row row-cols-1 row-cols-md-3 g-4">
-                    {catItems.map((doc) => (
-                      <div className="col" key={doc.slug}>
-                        <div className="card h-100 shadow-sm">
-                          <div className="card-body d-flex flex-column">
-                            <h5 className="card-title">{doc.name}</h5>
-                            <p className="text-muted mb-3">Starting at ₹{doc.basePrice}</p>
-                            <Link to={`/draft/document/${doc.slug}`} className="btn btn-red mt-auto" style={{ backgroundColor: '#f84b46', color: '#fff' }}>
-                              Create Affidavit
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+          {items && (
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                justifyContent: 'center',
+                gap: '30px',
+              }}
+              className="m-b-40"
+            >
+              {categoriesWithItems.map((cat) => (
+                <div
+                  key={cat.slug}
+                  style={{
+                    flex: '0 1 340px',
+                    border: '1px solid #eee',
+                    borderRadius: '6px',
+                    padding: '30px 24px',
+                    position: 'relative',
+                    background: '#fff',
+                  }}
+                >
+                  <span
+                    style={{
+                      position: 'absolute',
+                      top: '16px',
+                      right: '16px',
+                      backgroundColor: ACCENT,
+                      color: '#fff',
+                      borderRadius: '20px',
+                      padding: '4px 14px',
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      letterSpacing: '0.03em',
+                    }}
+                  >
+                    {cat.badge}
+                  </span>
+
+                  <div
+                    style={{
+                      fontSize: '48px',
+                      width: '80px',
+                      height: '80px',
+                      borderRadius: '50%',
+                      background: '#fdeceb',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginBottom: '20px',
+                    }}
+                  >
+                    {cat.icon}
                   </div>
+
+                  <h5 style={{ fontWeight: 700, marginBottom: '16px' }}>{cat.label}</h5>
+
+                  <ul style={{ listStyle: 'none', padding: 0, marginBottom: '24px' }}>
+                    {cat.items.map((doc) => (
+                      <li key={doc.slug} style={{ marginBottom: '8px', color: '#666' }}>
+                        <i className="fa fa-hand-o-right" style={{ marginRight: '8px', color: ACCENT }} />
+                        {doc.name}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => setExpandedCategory((prev) => (prev === cat.slug ? null : cat.slug))}
+                    style={{ backgroundColor: ACCENT, color: '#fff', width: '100%' }}
+                  >
+                    {expandedCategory === cat.slug ? 'Hide affidavits' : 'Select affidavit'}{' '}
+                    <i className="fa fa-arrow-right" />
+                  </button>
                 </div>
-              );
-            })}
+              ))}
+            </div>
+          )}
+
+          {expanded && (
+            <div className="m-b-40">
+              <h4 className="m-b-20">{expanded.label}</h4>
+              <div className="row row-cols-1 row-cols-md-3 g-4">
+                {expanded.items.map((doc) => (
+                  <div className="col" key={doc.slug}>
+                    <div className="card h-100 shadow-sm">
+                      <div className="card-body d-flex flex-column">
+                        <h5 className="card-title">{doc.name}</h5>
+                        <p className="text-muted mb-3">Starting at ₹{doc.basePrice}</p>
+                        <Link
+                          to={`/draft/document/${doc.slug}`}
+                          className="btn btn-red mt-auto"
+                          style={{ backgroundColor: ACCENT, color: '#fff' }}
+                        >
+                          Create Affidavit
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </>
