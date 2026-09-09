@@ -82,21 +82,11 @@ export default function DraftCatalog() {
                     {cat.badge}
                   </span>
 
-                  <div
-                    style={{
-                      fontSize: '48px',
-                      width: '80px',
-                      height: '80px',
-                      borderRadius: '50%',
-                      background: '#fdeceb',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginBottom: '20px',
-                    }}
-                  >
-                    {cat.icon}
-                  </div>
+                  <img
+                    src={cat.image}
+                    alt={cat.label}
+                    style={{ width: '100%', height: '160px', objectFit: 'cover', borderRadius: '6px', marginBottom: '20px' }}
+                  />
 
                   <h5 style={{ fontWeight: 700, marginBottom: '16px' }}>{cat.label}</h5>
 
