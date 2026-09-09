@@ -32,7 +32,8 @@ export default function HeroSlider() {
           key={i}
           className={`slide background-image${i === active ? ' is-selected' : ''}`}
           style={{
-            backgroundImage: `url('${slide.image}')`,
+            '--hero-bg-desktop': `url('${slide.image}')`,
+            '--hero-bg-mobile': `url('${slide.imageMobile}')`,
             position: 'absolute',
             inset: 0,
             zIndex: i === active ? 2 : 1,
@@ -41,7 +42,7 @@ export default function HeroSlider() {
         >
           <div className="container">
             {i === active && (
-              <div className="slide-captions text-left" key={active}>
+              <div className="slide-captions" key={active}>
                 <h6 className="text-light">{slide.eyebrow}</h6>
                 <h2 className="text-uppercase text-medium text-light">{slide.title}</h2>
                 <p className="lead text-light">{slide.text}</p>

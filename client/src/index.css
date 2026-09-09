@@ -86,4 +86,18 @@ body {
   animation-delay: 0.55s;
 }
 
+/* Hero slide background image: the legacy site swapped in a shorter,
+   portrait-cropped image on mobile (img/1_m.jpg vs img/1.jpg) via a
+   separate duplicated markup block. We render one shared block instead,
+   so pick the desktop/mobile image via CSS custom properties set inline
+   per slide (HeroSlider.jsx) rather than duplicating the markup. */
+.inspiro-slider .slide.background-image {
+  background-image: var(--hero-bg-desktop);
+}
+@media (max-width: 767px) {
+  .inspiro-slider .slide.background-image {
+    background-image: var(--hero-bg-mobile);
+  }
+}
+
 

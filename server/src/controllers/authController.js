@@ -4,6 +4,7 @@ const User = require('../models/User');
 const { LegacyUser } = require('../models/legacy');
 const { signToken } = require('../utils/jwt');
 const { sendMail } = require('../utils/mailer');
+const { isMobileVerified, consumeVerification } = require('./otpController');
 
 const PUBLIC_FIELDS = 'name email mobile createdAt';
 
@@ -21,8 +22,13 @@ async function register(req, res) {
     return res.status(409).json({ error: 'An account with this email already exists.' });
   }
 
+  if (!(await isMobileVerified(mobile))) {
+    return res.status(400).json({ error: 'Please verify your mobile number with the OTP before registering.' });
+  }
+
   const passwordHash = await bcrypt.hash(password, 10);
   const user = await User.create({ name, email, mobile, passwordHash });
+  await consumeVerification(mobile);
 
   const token = signToken({ sub: user._id, type: 'user' });
   res.status(201).json({ token, user: { name: user.name, email: user.email, mobile: user.mobile } });

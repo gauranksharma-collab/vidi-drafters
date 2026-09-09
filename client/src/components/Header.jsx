@@ -119,7 +119,11 @@ export default function Header() {
               </a>
             </div>
 
-            <div id="mainMenu" className="menu-onclick menu-lines">
+            <div
+              id="mainMenu"
+              className={`menu-onclick menu-lines${menuOpen ? ' menu-animate' : ''}`}
+              style={{ maxHeight: menuOpen ? '2000px' : undefined }}
+            >
               <div className="container">
                 <nav>
                   <ul onClick={(e) => { if (e.target.tagName === 'A' && !e.target.closest('.dropdown')) closeMenu(); }}>
